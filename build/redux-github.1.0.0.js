@@ -23251,17 +23251,16 @@
 	
 	var React = __webpack_require__(1);
 	var connect = __webpack_require__(172).connect;
-	
 	var Repository = __webpack_require__(204);
+	var actions = __webpack_require__(202);
 	
 	var RepositoryList = React.createClass({
 	    displayName: 'RepositoryList',
 	
 	    addRepository: function addRepository() {
 	        var repositoryName = this.refs.repositoryName.value;
-	        // TODO: Add the repository to the state
+	        this.props.dispatch(actions.addRepository(repositoryName));
 	    },
-	
 	    render: function render() {
 	        var repositories = this.props.repositories.map(function (repository) {
 	            return React.createElement(Repository, { repository: repository, key: repository.name });
@@ -23290,6 +23289,8 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
+	var connect = __webpack_require__(172).connect;
+	var actions = __webpack_require__(202);
 	
 	var StarRater = __webpack_require__(205);
 	
@@ -23297,7 +23298,7 @@
 	    displayName: 'Repository',
 	
 	    changeRating: function changeRating(rating) {
-	        // TODO: Change the rating
+	        this.props.dispatch(actions.rateRepository(this.props.repository.name, rating));
 	    },
 	    render: function render() {
 	        return React.createElement(
@@ -23309,7 +23310,10 @@
 	                onChange: this.changeRating })
 	        );
 	    }
+	
 	});
+	
+	console.log(Repository);
 	
 	module.exports = Repository;
 
