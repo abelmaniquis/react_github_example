@@ -52,6 +52,7 @@
 	
 	var store = __webpack_require__(200);
 	var RepositoryList = __webpack_require__(203);
+	var Repository = __webpack_require__(204); //I added this
 	
 	document.addEventListener('DOMContentLoaded', function () {
 	    ReactDOM.render(React.createElement(
@@ -23254,6 +23255,9 @@
 	var Repository = __webpack_require__(204);
 	var actions = __webpack_require__(202);
 	
+	console.log('HERE IS REPOSITORY');
+	console.log(Repository);
+	
 	var RepositoryList = React.createClass({
 	    displayName: 'RepositoryList',
 	
@@ -23262,6 +23266,7 @@
 	        this.props.dispatch(actions.addRepository(repositoryName));
 	    },
 	    render: function render() {
+	        //This is what is giving the error
 	        var repositories = this.props.repositories.map(function (repository) {
 	            return React.createElement(Repository, { repository: repository, key: repository.name });
 	        });
@@ -23280,6 +23285,9 @@
 	    }
 	});
 	
+	console.log("Here's what RepositoryList.refs looks like:");
+	console.log(RepositoryList.refs);
+	
 	module.exports = RepositoryList;
 
 /***/ },
@@ -23291,8 +23299,10 @@
 	var React = __webpack_require__(1);
 	var connect = __webpack_require__(172).connect;
 	var actions = __webpack_require__(202);
-	
 	var StarRater = __webpack_require__(205);
+	var Reducer = __webpack_require__(201);
+	
+	console.log(Reducer);
 	
 	var Repository = React.createClass({
 	    displayName: 'Repository',
@@ -23312,8 +23322,6 @@
 	    }
 	
 	});
-	
-	console.log(Repository);
 	
 	module.exports = Repository;
 
@@ -23349,6 +23357,7 @@
 	        );
 	    }
 	});
+	console.log(StarRater);
 	
 	module.exports = StarRater;
 

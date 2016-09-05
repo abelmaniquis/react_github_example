@@ -4,6 +4,7 @@ var Provider = require('react-redux').Provider;
 
 var store = require('./store');
 var RepositoryList = require('./repository-list');
+var Repository = require('./repository'); //I added this
 
 document.addEventListener('DOMContentLoaded', function() {
     ReactDOM.render(

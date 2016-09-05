@@ -26,5 +26,6 @@ var StarRater = React.createClass({
         );
     }
 });
+console.log(StarRater);
 
 module.exports = StarRater;
